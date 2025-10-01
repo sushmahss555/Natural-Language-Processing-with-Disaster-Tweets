@@ -36,20 +36,29 @@ We participate in the [Kaggle competition: Natural Language Processing with Disa
 ---
 
 ## 🏗️ Model Architecture
-A **vanilla Recurrent Neural Network (RNN)** is used:
 
-1. **Embedding Layer** – maps words to dense vectors.  
-2. **Simple RNN Layer** – processes sequences step-by-step.  
-3. **Dropout** – prevents overfitting.  
-4. **Dense Layers** – classification layers.  
-5. **Output Layer** – sigmoid activation for binary classification.  
+Three models were built and compared for this project:
 
-```python
-model = Sequential([
-    Embedding(input_dim=max_words, output_dim=100, input_length=max_len),
-    SimpleRNN(64, activation='tanh'),
-    Dropout(0.5),
-    Dense(32, activation='relu'),
-    Dropout(0.3),
-    Dense(1, activation='sigmoid')
-])
+### 1. **Simple RNN**
+- **Embedding Layer** – maps words to dense vectors.  
+- **Simple RNN Layer** – processes sequences step-by-step.  
+- **Dropout** – prevents overfitting.  
+- **Dense Layers** – fully connected layers for classification.  
+- **Output Layer** – sigmoid activation for binary classification.
+
+### 2. **LSTM**
+- **Embedding Layer** – maps words to dense vectors.  
+- **LSTM Layer** – captures long-term dependencies in sequences.  
+- **Dropout** – prevents overfitting.  
+- **Dense Layers** – fully connected layers for classification.  
+- **Output Layer** – sigmoid activation for binary classification.
+
+### 3. **Bidirectional LSTM**
+- **Embedding Layer** – maps words to dense vectors.  
+- **Bidirectional LSTM Layer** – reads sequences in both forward and backward directions to capture more context.  
+- **Dropout** – prevents overfitting.  
+- **Dense Layers** – fully connected layers for classification.  
+- **Output Layer** – sigmoid activation for binary classification.
+
+> All three models were trained on the same tokenized and padded dataset to compare performance.
+
